@@ -1,6 +1,6 @@
 "use client";
 import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { Bar, Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -28,7 +28,8 @@ ChartJS.register(
 
 const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
 
-export default function PlaylistDetails() {
+// Create a new client component for the playlist content
+function PlaylistContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const playlistUrl = searchParams.get("url");
@@ -354,7 +355,7 @@ export default function PlaylistDetails() {
               </div>
               {realData.thumbnailUrl && (
                 <div className="thumbnail-container" style={{ position: 'relative', display: 'inline-block' }}>
-                  <img src={realData.thumbnailUrl} alt="Playlist thumbnail" className="thumbnail" />
+                  <img src={realData.thumbnailUrl} alt="Playlist thumbnail" className="thumbnail" onClick={openPlaylist} />
                   <i 
                     className="fa-solid fa-link"
                     style={{
@@ -450,5 +451,14 @@ export default function PlaylistDetails() {
         <p>MADE WITH ❤️ BY PAWAN</p>
       </footer>
     </div>
+  );
+}
+
+// Main page component
+export default function PlaylistDetails() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PlaylistContent />
+    </Suspense>
   );
 }
