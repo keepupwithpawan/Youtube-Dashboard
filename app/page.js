@@ -9,8 +9,14 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!playlistUrl.trim()) {
+      alert("Please enter a YouTube playlist link.");
+      document.querySelector('.search-input').focus();
+      return;
+    }
     if (!playlistUrl.includes("list=")) {
       alert("Please enter a valid YouTube playlist link.");
+      document.querySelector('.search-input').focus();
       return;
     }
     router.push(`/playlist?url=${encodeURIComponent(playlistUrl)}`);
