@@ -1,95 +1,69 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client"; 
+import "./styles/page.css";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [playlistUrl, setPlaylistUrl] = useState("");
+  const router = useRouter();
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!playlistUrl.includes("list=")) {
+      alert("Please enter a valid YouTube playlist link.");
+      return;
+    }
+    router.push(`/playlist?url=${encodeURIComponent(playlistUrl)}`);
+  };
+
+  const redirectLinkedin = () => {
+    window.open("https://linkedin.com/in/pawankamat")
+  }
+
+  const redirectGithub = () => {
+    window.open("https://github.com/keepupwithpawan")
+  }
+
+  return (
+    <>
+      <div className="container">
+        <header>
+          <div className="logo">
+            <span className="logo-icon">⟹</span>
+          </div>
+          <nav>
+            <div className="nav-links">
+              <div className="nav-item" onClick={redirectLinkedin}><i className="fa-brands fa-linkedin"></i></div>
+              <div className="nav-item" onClick={redirectGithub}><i className="fa-brands fa-github"></i></div>
+            </div>
+          </nav>
+        </header>
+
+        <main>
+          <h1>YOUTUBE PLAYLIST <br /> ANALYZER</h1>
+          <div className="tagline">
+            Get insights on your favorite YouTube playlists in seconds.<br />
+            Enter link below.
+          </div>
+          <div className="action-container">
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Paste YouTube playlist URL..."
+              required
+              value={playlistUrl}
+              onChange={(e) => setPlaylistUrl(e.target.value)}
             />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+            <button type="submit" className="search-button" onClick={handleSubmit}>
+              <i className="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </main>
+
+        <footer>
+          <p>MADE WITH ❤️ BY PAWAN</p>
+        </footer>
+      </div>
+    </>
   );
 }
