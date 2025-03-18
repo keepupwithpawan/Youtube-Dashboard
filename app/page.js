@@ -3,23 +3,46 @@ import "./styles/page.css";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+// Custom Alert Component
+const CustomAlert = ({ message, isVisible, onClose }) => {
+  if (!isVisible) return null;
+  
+  return (
+    <div className="custom-alert-overlay">
+      <div className="custom-alert">
+        <div className="custom-alert-content">
+          <p>{message}</p>
+          <button className="custom-alert-button" onClick={onClose}>OK</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function Home() {
   const [playlistUrl, setPlaylistUrl] = useState("");
+  const [alertMessage, setAlertMessage] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
   const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!playlistUrl.trim()) {
-      alert("Please enter a YouTube playlist link.");
-      document.querySelector('.search-input').focus();
+      setAlertMessage("Please enter a YouTube playlist link.");
+      setShowAlert(true);
       return;
     }
     if (!playlistUrl.includes("list=")) {
-      alert("Please enter a valid YouTube playlist link.");
-      document.querySelector('.search-input').focus();
+      setAlertMessage("Please enter a valid YouTube playlist link.");
+      setShowAlert(true);
       return;
     }
     router.push(`/playlist?url=${encodeURIComponent(playlistUrl)}`);
+  };
+
+  const closeAlert = () => {
+    setShowAlert(false);
+    document.querySelector('.search-input').focus();
   };
 
   const redirectLinkedin = () => {
@@ -70,6 +93,13 @@ export default function Home() {
           <p>MADE WITH ❤️ BY PAWAN</p>
         </footer>
       </div>
+      
+      {/* Custom Alert Component */}
+      <CustomAlert 
+        message={alertMessage} 
+        isVisible={showAlert} 
+        onClose={closeAlert} 
+      />
     </>
   );
 }
