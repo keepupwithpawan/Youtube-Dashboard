@@ -453,3 +453,12 @@ function PlaylistContent() {
     </div>
   );
 }
+
+// Main page component
+export default function PlaylistDetails() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PlaylistContent />
+    </Suspense>
+  );
+}
