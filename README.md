@@ -133,4 +133,3 @@ This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE
 - **YouTube Data API** for providing the data backbone.  
 - **Chart.js** for beautiful, interactive charts.  
 - **Next.js** team for an amazing framework.  
-"""
