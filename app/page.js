@@ -16,6 +16,11 @@ export default function Home() {
     router.push(`/playlist?url=${encodeURIComponent(playlistUrl)}`);
   };
 
+  const handleChannelPage = (e) => {
+    e.preventDefault();
+    router.push('/channel-landing');
+  };
+
   const redirectLinkedin = () => {
     window.open("https://linkedin.com/in/pawankamat")
   }
@@ -57,6 +62,10 @@ export default function Home() {
             <button type="submit" className="search-button" onClick={handleSubmit}>
               <i className="fa-solid fa-arrow-right"></i>
             </button>
+          </div>
+          
+          <div className="other-features">
+            <button className="feature-1" onClick={handleChannelPage}>Analyze Channel</button>
           </div>
         </main>
 

@@ -12,7 +12,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: 'General-Sans', sans-serif;
 }
 
 html, body {
@@ -145,7 +145,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-align: center;
+  text-align: left;
   margin-bottom: 20px;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.1);
@@ -160,9 +160,11 @@ nav {
 }
 
 .thumbnail-container {
+  cursor: pointer;
   width: 320px;
   height: 180px;
   margin-left: 1rem;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .thumbnail {

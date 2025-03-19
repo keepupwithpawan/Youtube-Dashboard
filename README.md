@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# YouTube Dashboard
+
+A modern, interactive dashboard for analyzing YouTube playlists. Built with Next.js and Chart.js.
+
+## Features
+
+- 📊 Real-time playlist analytics
+- 📈 Interactive charts and graphs
+- 🎯 Top video performance tracking
+- 📅 Timeline visualization
+- 🏷️ Category analysis
+- 📱 Responsive design
+- ⚡ Fast loading with skeleton screens
+
+## Tech Stack
+
+- Next.js 14
+- React
+- Chart.js
+- CSS3
+- YouTube Data API
 
 ## Getting Started
 
-First, run the development server:
-
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/youtube-dashboard.git
+cd youtube-dashboard
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. Create a `.env` file in the root directory and add your YouTube API key:
+```
+NEXT_PUBLIC_YOUTUBE_API_KEY=your_api_key_here
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Run the development server:
+```bash
+npm run dev
+```
 
-## Learn More
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-To learn more about Next.js, take a look at the following resources:
+## How to Use
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Enter a YouTube playlist URL in the input field
+2. Wait for the dashboard to analyze the playlist
+3. Explore the various metrics and visualizations
+4. Click on the thumbnail to open the playlist in YouTube
+5. Hover over charts for detailed information
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Environment Variables
 
-## Deploy on Vercel
+- `NEXT_PUBLIC_YOUTUBE_API_KEY`: Your YouTube Data API key
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Author
+
+Pawan
+
+## Acknowledgments
+
+- YouTube Data API
+- Chart.js
+- Next.js team

@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-bg: #f7f7f7;
+  --text-dark: #111111;
+  --text-gray: #6e6e6e;
+  --button-bg: #111111;
+  --button-text: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: linear-gradient(to top, rgba(3, 13, 195, 0.6) 0%, rgba(230, 240, 250, 0.5) 80%);
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 1.5rem 2rem;
+  margin: 0 auto;
+  flex-grow: 1;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 0;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-item {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 28px;
+}
+
+.fa-linkedin:hover { color: #0077b5; }
+.fa-github:hover { color: black; }
+
+.channel-main {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+
+.channel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.channel-thumbnail-container {
+  cursor: pointer;
+  width: 320px;
+  height: 180px;
+}
+
+.channel-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: filter 0.5s ease;
+}
+
+.channel-thumbnail:hover {
+  filter: brightness(1.1);
+}
+
+.channel-title {
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+}
+
+/* Bento Grid Layout */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  grid-template-areas:
+    "top-videos top-videos views-trend views-trend"
+    "video-categories video-categories video-categories video-categories";
+}
+
+.bento-item {
+  min-height: 140px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.bento-item:hover {
+  transform: scale(0.99);
+}
+
+.bento-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.25rem;
+  color: var(--text-gray);
+  z-index: 10;
+  opacity: 1;
+}
+
+.stat-title {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.stat-value {
+  font-size: 2rem;
+}
+
+/* Chart Specific Styles */
+.top-videos {
+  grid-area: top-videos;
+  height: 300px;
+}
+
+.views-trend {
+  grid-area: views-trend;
+  height: 300px;
+}
+
+.video-categories {
+  grid-area: video-categories;
+  height: 300px;
+}
+
+.chart-container {
+  height: 220px;
+  width: 100%;
+}
+
+/* Latest Videos Specific Styles */
+.latest-videos {
+  width: 100%;
+  margin-top: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.latest-videos-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.latest-video-item {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.latest-video-item:hover {
+  transform: scale(1.02);
+}
+
+.video-thumbnail img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  aspect-ratio: 1 / 1;
+}
+
+.video-info {
+  padding: 0.5rem 0;
+}
+
+.video-title {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.video-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--text-gray);
+}
+
+.video-stats span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+footer > p {
+  font-size: 0.875rem;
+}
+
+/* Media Queries */
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .charts-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "top-videos"
+      "views-trend"
+      "video-categories";
+  }
+}
+
+@media (max-width: 600px) {
+  .channel-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .channel-thumbnail-container {
+    width: 100%;
+    height: 140px;
+  }
+
+  .channel-title {
+    font-size: 1.25rem;
+  }
+
+  .latest-videos-list {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .video-thumbnail img {
+    height: 150px;
+  }
+}
+
+/* Skeleton Loader Styles */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-text {
+  height: 1rem;
+  margin-bottom: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.skeleton-thumbnail {
+  width: 320px;
+  height: 180px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.skeleton-icon {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+}
+
+.skeleton-chart {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  height: 200px;
+  width: 100%;
+}
+
+.skeleton-tag {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  height: 1.5rem;
+  width: 80px;
+  display: inline-block;
+  margin-right: 0.5rem;
+}

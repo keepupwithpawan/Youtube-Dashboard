@@ -175,28 +175,28 @@ h1 {
 }
 
 .other-features {
-  width: 100%;
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  /* background-color: red; */
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    /* background-color: red; */
 }
-
+  
 .feature-1{
-  cursor: pointer;
-  background-color: #000;
-  color: #f7f7f7;
-  padding: 10px 18px;
-  border: none;
-  border-radius: 20px;
-  transition: transform 0.5s, background-color 0.5s;
+    cursor: pointer;
+    background-color: #000;
+    color: #f7f7f7;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 20px;
+    transition: transform 0.5s, background-color 0.5s;
 }
-
+  
 .feature-1:hover {
-  background-color: rgba(3, 13, 195, 1);
-  transform: scale(0.97);
+    background-color: rgba(3, 13, 195, 1);
+    transform: scale(0.97);
 }
 
 footer {
