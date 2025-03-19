@@ -26,27 +26,26 @@ A modern, interactive dashboard for analyzing YouTube playlists and channels. Bu
 ## Getting Started
 
 ### 1. Clone the Repository  
-\`\`\`bash
+```bash
 git clone https://github.com/yourusername/youtube-dashboard.git
 cd youtube-dashboard
-\`\`\`
+```
 
 ### 2. Install Dependencies  
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 
 ### 3. Set Up Environment Variables  
 Create a \`.env\` file in the root directory and add your YouTube API key:  
 
-\`\`\`plaintext
+```plaintext
 NEXT_PUBLIC_YOUTUBE_API_KEY=your_api_key_here
-\`\`\`
-
+```
 ### 4. Run the Development Server  
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 ### 5. Open in Your Browser  
 Visit [http://localhost:3000](http://localhost:3000) to see the dashboard in action.  
